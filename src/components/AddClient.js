@@ -29,7 +29,8 @@ class AddClient extends Component {
             balance
         }
         // console.log(newContact);
-        addClient(newClient);
+        this.props.addClient(newClient);
+        this.props.history.push("/");
 
     }
 

@@ -8,12 +8,14 @@ import axios from "axios";
 
 export const addClient = (newClient) => async dispatch => { 
     const res = await axios.post("http://localhost:5000/client/add", newClient);
-
+    console.log(res.data.client);
     dispatch({
         type:ADD_CLIENT,
         payload:res.data
         
     });
+    // this.props.history.push("/");
+
 }
 
 
