@@ -22,6 +22,15 @@ const ContactReducer = (state = initialState, action) => {
                 ...state,
                 clients:action.payload
             }
+        case DELETE_CLIENT_BY_ID:
+            return{
+                ...state,
+                clients: state.clients.filter(client =>{
+                    return(
+                        client.id !== action.payload
+                    )
+                })
+            }
         default:
             return state;
     }

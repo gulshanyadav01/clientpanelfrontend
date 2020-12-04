@@ -8,10 +8,11 @@ import axios from "axios";
 
 export const addClient = (newClient) => async dispatch => { 
     const res = await axios.post("http://localhost:5000/client/add", newClient);
-    console.log(res.data.client);
+    // console.log(res.data.client);
+
     dispatch({
         type:ADD_CLIENT,
-        payload:res.data
+        payload:res.data.client
         
     });
     // this.props.history.push("/");
@@ -21,17 +22,18 @@ export const addClient = (newClient) => async dispatch => {
 
 export const getClients = () =>  async dispatch => {
     const response = await axios.get("http://localhost:5000/client/getclients");
-    // console.log("hello"); 
 
     dispatch({
         type:GET_CLIENTS,
         payload: response.data.clients
     })
-    // console.log("hello");
-    // const res = await axios.get('http://localhost:5000/client/getclients');
-    // console.log(res.data.clients);
-    // dispatch({
-    //     type:GET_CLIENTS,
-    //     payload:res.data
-    // })
+    
+}
+
+export const deleteClientById = (id ) => async dispatch => {
+    await axios.delete(`http://localhost:5000/client/deleteclient/${id}`); 
+    dispatch({
+        type:DELETE_CLIENT_BY_ID,
+        payload:id
+    })
 }

@@ -23,7 +23,10 @@ class Clients extends Component {
                 {this.props.client.map(client =>{
                     return(
                         <Client 
-                        firstName = {client.firstName}/>
+                        key = {client._id}
+                        firstName = {client.firstName}
+                        id = {client._id}
+                        />
                     )
                 })}
                 
