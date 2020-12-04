@@ -6,41 +6,36 @@ import Client from "./Client"
 
 
 class Clients extends Component {
-
     componentDidMount(){
-        // const res = await axios.get("http://localhost:5000/client/getClients");
-        // console.log(res.data.clients);
-        getClients();
+        this.props.getClients();
     }
-   
-    // onSubmit = async (e) => {
-    //     e.preventDefault();
-    //     this.props.getClients();
 
-    //     // const res = await axios.get("http://localhost:5000/client/getClients"); 
-    //     // console.log(res.data.clients);
-    // }
+   
+   
     render() {
-        
+        // const { client } = this.props.client;
     
         
         return (
             <div>
+            {/* <h1 onClick = {this.onSubmit}>click </h1> */}
+            
                 {this.props.client.map(client =>{
                     return(
                         <Client 
                         firstName = {client.firstName}/>
                     )
                 })}
+                
             </div>
         )
     }
 }
-// const mapStateToProps = (state) => { 
-//     return {
-//         client:state.Clients
-//     }
-// }
+const mapStateToProps = (state) => { 
+    return {
+        client: state.clients
+    }
+}
 
 
-export default connect(null, {getClients})(Clients);
+export default connect(mapStateToProps,{getClients})(Clients);

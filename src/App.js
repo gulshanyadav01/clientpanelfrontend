@@ -8,7 +8,7 @@ const  App = () =>  {
   return (
     <Provider store = {store}>
     <div className="App">
-     <AddClient/>
+     {/* <AddClient/> */}
      <Clients/>
     </div>
     </Provider>

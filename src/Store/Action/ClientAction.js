@@ -17,8 +17,14 @@ export const addClient = (newClient) => async dispatch => {
 }
 
 
-export const getClients = () => {
-    console.log("hello"); 
+export const getClients = () =>  async dispatch => {
+    const response = await axios.get("http://localhost:5000/client/getclients");
+    // console.log("hello"); 
+
+    dispatch({
+        type:GET_CLIENTS,
+        payload: response.data.clients
+    })
     // console.log("hello");
     // const res = await axios.get('http://localhost:5000/client/getclients');
     // console.log(res.data.clients);

@@ -5,9 +5,9 @@ import ClientReducer from "./Reducer/ClientReducer"
 
 const middleware = [thunk]; 
 
-const initialState = {}; 
+// const initialState = {}; 
 
-const Store = createStore(ClientReducer, initialState, composeWithDevTools(applyMiddleware(...middleware))); 
+const Store = createStore(ClientReducer, composeWithDevTools(applyMiddleware(...middleware))); 
 
 
 

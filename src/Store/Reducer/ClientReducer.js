@@ -6,9 +6,7 @@ import {ADD_CLIENT,
     } from "../Action/Action"
 
 const initialState = {
-    clients:[
-        {firstName:"gulshan", lastName:"yadav", email:"gulshany01@gmail.com"}
-    ]
+    clients:[]
 }
 
 const ContactReducer = (state = initialState, action) => { 
@@ -20,7 +18,10 @@ const ContactReducer = (state = initialState, action) => {
                 
         }
         case GET_CLIENTS:
-            return state
+            return{
+                ...state,
+                clients:action.payload
+            }
         default:
             return state;
     }
