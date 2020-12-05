@@ -36,12 +36,12 @@ class Clients extends Component {
                 {this.props.client.map(client =>{
                     return(
                        <>
-                       <tr>
+                       <tr  key = {client._id}>
                            <td className = "border font-bold px-6 py-2">{client.firstName}  {client.lastName}</td>
                            <td className = "border font-bold px-6 py-2"> {client.email}</td>
                            <td className = "border font-bold px-6 py-2"> {client.phone}</td>
                            <td className = "border font-bold px-6 py-2"> {client.balance}</td>
-                           <Link to = {`/detail/${client._id}`}> <td className = " font-bold px-6 py-2">Details</td></Link> 
+                           <td className = " font-bold px-6 py-2"> <Link to = {`/detail/${client._id}`}>Details</Link> </td>
 
                        </tr>
                        </>

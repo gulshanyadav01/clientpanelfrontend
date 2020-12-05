@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 import DeleteIcon from '@material-ui/icons/Delete';
 import {connect} from "react-redux"; 
-import { deleteClientById } from "../Store/Action/ClientAction"
+
 
  class Client extends Component {
 
-     onDelete = (id) => { 
-         this.props.deleteClientById(id);
     
-
-     }
 
     render() {
        const  {firstName, id} = this.props; 

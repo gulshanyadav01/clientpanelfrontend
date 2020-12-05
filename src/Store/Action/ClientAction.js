@@ -32,6 +32,7 @@ export const getClients = () =>  async dispatch => {
 
 export const deleteClientById = (id ) => async dispatch => {
     await axios.delete(`http://localhost:5000/client/deleteclient/${id}`); 
+    console.log(id);
     dispatch({
         type:DELETE_CLIENT_BY_ID,
         payload:id
