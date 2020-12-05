@@ -6,7 +6,8 @@ import {ADD_CLIENT,
     } from "../Action/Action"
 
 const initialState = {
-    clients:[]
+    clients:[],
+    client:{}
 }
 
 const ContactReducer = (state = initialState, action) => { 
@@ -30,6 +31,11 @@ const ContactReducer = (state = initialState, action) => {
                         client.id !== action.payload
                     )
                 })
+            }
+        case GET_CLIENT_BY_ID:
+            return{
+                ...state,
+                client:action.payload
             }
         default:
             return state;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"; 
 import { getClients} from "../Store/Action/ClientAction"
-import Client from "./Client"
 // import axios from "axios";
 import Sidebar from "./Sidebar"
 import { Link } from "react-router-dom"
@@ -42,7 +41,7 @@ class Clients extends Component {
                            <td className = "border font-bold px-6 py-2"> {client.email}</td>
                            <td className = "border font-bold px-6 py-2"> {client.phone}</td>
                            <td className = "border font-bold px-6 py-2"> {client.balance}</td>
-                           <Link to = "/detail"> <td className = " font-bold px-6 py-2">Details</td></Link> 
+                           <Link to = {`/detail/${client._id}`}> <td className = " font-bold px-6 py-2">Details</td></Link> 
 
                        </tr>
                        </>

@@ -5,6 +5,7 @@ import store from "./Store/Store"
 import Clients from "./components/Clients"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import AppNavbar from "./components/AppNavbar"
+import Detail from "./components/Detail"
 
 const  App = () =>  {
   return (
@@ -15,6 +16,7 @@ const  App = () =>  {
     <Switch>
      <Route exact path = "/" component = {Clients}/>
      <Route exact path = "/addclient" component = {AddClient}/>
+     <Route exact path = "/detail/:id" component = {Detail}/>
      </Switch>
      </Router>
     </div>

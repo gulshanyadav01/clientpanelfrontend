@@ -37,3 +37,13 @@ export const deleteClientById = (id ) => async dispatch => {
         payload:id
     })
 }
+
+
+export const getClientById = (id) => async dispatch => {
+    const res = await axios.get(`http://localhost:5000/client/getclientbyid/${id}`); 
+    // console.log(res.data.client);
+    dispatch({
+        type:GET_CLIENT_BY_ID,
+        payload:res.data.client
+    })
+}
