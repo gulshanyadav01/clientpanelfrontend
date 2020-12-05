@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import DeleteIcon from '@material-ui/icons/Delete';
 import {connect} from "react-redux"; 
 import { deleteClientById } from "../Store/Action/ClientAction"
-import { Redirect } from "react-router-dom"
+
  class Client extends Component {
 
      onDelete = (id) => { 
          this.props.deleteClientById(id);
-        return <Redirect to = "/"/>
+    
 
      }
 

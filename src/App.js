@@ -4,11 +4,13 @@ import {Provider } from "react-redux";
 import store from "./Store/Store"
 import Clients from "./components/Clients"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import AppNavbar from "./components/AppNavbar"
 
 const  App = () =>  {
   return (
     <Provider store = {store}>
     <div className="App">
+    <AppNavbar/>
     <Router>
     <Switch>
      <Route exact path = "/" component = {Clients}/>
