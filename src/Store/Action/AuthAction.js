@@ -11,16 +11,24 @@ import SetAuthToken from "../../utils/SetAuthToken";
 
 // Load user 
 
-// export const loaduser = () => async dispatch =>{
-//     if(localStorage.token){
-//         SetAuthToken(localStorage.token);
+export const loadUser = () => async dispatch =>{
+    if(localStorage.token){
+        SetAuthToken(localStorage.token);
 
-//     }
-//     try{
-//         const res = await axios.get("http://localhost:5000/")
+    }
+    try{
+        const res = await axios.get("http://localhost:5000/user/signup")
+        dispatch({
+            type:USER_LOADED,
+            payload: res.data
+        });
 
-//     }catch()
-// }
+    }catch(err){
+        dispatch({
+            type:AUTH_ERROR
+        })
+    }
+}
 
 
 
