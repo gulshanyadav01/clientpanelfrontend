@@ -10,7 +10,7 @@ const initialState = {
     client:{}
 }
 
-const ContactReducer = (state = initialState, action) => { 
+const ClientReducer = (state = initialState, action) => { 
     switch(action.type){
         case ADD_CLIENT:
             return{
@@ -42,4 +42,4 @@ const ContactReducer = (state = initialState, action) => {
     }
 }
 
-export default ContactReducer; 
+export default ClientReducer; 

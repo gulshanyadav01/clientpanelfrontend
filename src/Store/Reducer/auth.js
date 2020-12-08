@@ -5,7 +5,7 @@ import {
 from "../../Store/Action/Action"
 
 const initialState = {
-    token: localStorage.getItem("token"),
+    token: null,
     isAuthenticated: null,
     loading: true,
     user:null
@@ -15,10 +15,11 @@ const initialState = {
     const { type, payload} = action; 
     switch(type){
         case REGISTER_SUCCESS:
-            localStorage.setItem("token", payload.token);
+            localStorage.setItem('token' , payload.token)
             return{
                 ...state,
                 ...payload,
+                token: localStorage.getItem('token'),
                 isAuthenticated: true,
                 loading:false
             }

@@ -6,6 +6,7 @@ import Clients from "./components/Clients"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import AppNavbar from "./components/AppNavbar"
 import Detail from "./components/Detail"
+import Register from "./components/UserAuth/Register"
 
 const  App = () =>  {
   return (
@@ -17,6 +18,7 @@ const  App = () =>  {
      <Route exact path = "/" component = {Clients}/>
      <Route exact path = "/addclient" component = {AddClient}/>
      <Route exact path = "/detail/:id" component = {Detail}/>
+     <Route exact path = "/register" component = {Register}/>
      </Switch>
      </Router>
     </div>
