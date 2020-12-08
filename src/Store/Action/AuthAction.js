@@ -1,9 +1,28 @@
 import {
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    USER_LOADED,
+    AUTH_ERROR
+    
 }
 from "./Action";
 import axios from "axios";
+import SetAuthToken from "../../utils/SetAuthToken";
+
+// Load user 
+
+// export const loaduser = () => async dispatch =>{
+//     if(localStorage.token){
+//         SetAuthToken(localStorage.token);
+
+//     }
+//     try{
+//         const res = await axios.get("http://localhost:5000/")
+
+//     }catch()
+// }
+
+
 
 
 // register users 
