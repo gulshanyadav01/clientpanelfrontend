@@ -1,19 +1,28 @@
 import { 
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    USER_LOADED,
+    AUTH_ERROR
 }
 from "../../Store/Action/Action"
 
 const initialState = {
     token: null,
     isAuthenticated: null,
-    loading: true,
-    user:null
+    loading: true
 }
 
  const authReducer = (state = initialState, action) =>  {
     const { type, payload} = action; 
     switch(type){
+
+        case USER_LOADED:
+            return{
+                ...state,
+                isAuthenticated: true,
+                loading: false
+            }
+        
         case REGISTER_SUCCESS:
             localStorage.setItem('token' , payload.token)
             return{
@@ -24,6 +33,7 @@ const initialState = {
                 loading:false
             }
         case REGISTER_FAIL:
+        case AUTH_ERROR:
             localStorage.removeItem("token");
             return{
                 ...state,

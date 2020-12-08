@@ -2,7 +2,9 @@ import {
     REGISTER_SUCCESS,
     REGISTER_FAIL,
     USER_LOADED,
-    AUTH_ERROR
+    AUTH_ERROR,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL
     
 }
 from "./Action";
@@ -31,6 +33,7 @@ export const loadUser = () => async dispatch =>{
 }
 
 
+//
 
 
 // register users 
@@ -58,4 +61,30 @@ export const register = ({name, email, password}) => async dispatch =>{
     }
 }
 
+// login user 
+
+
+export const login = ({ email, password}) => async dispatch =>{
+    
+    const config = {
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }
+    const body = JSON.stringify({email, password});
+    try{
+        const res = await axios.post("http://localhost:5000/user/login", body, config);
+        dispatch({
+            type: LOGIN_SUCCESS,
+            payload: res.data
+        })
+
+    }catch(error){
+        dispatch({
+            type:LOGIN_FAIL
+
+        })
+
+    }
+}
 

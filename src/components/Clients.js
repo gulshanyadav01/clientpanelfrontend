@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 class Clients extends Component {
     componentDidMount(){
         this.props.getClients();
+        console.log(this.props.auth)
     }
 
    
@@ -32,8 +33,9 @@ class Clients extends Component {
                 <th className = "bg-blue-100 text-left px-6 py-2 border">phone</th>
                 <th className = " bg-blue-100 text-left px-6 py-2 border">balance</th>
             </tr>
-            
-                {this.props.client.map(client =>{
+            {this.props.auth ? (
+                <div>
+                { this.props.client.map(client =>{
                     return(
                        <>
                        <tr  key = {client._id}>
@@ -42,11 +44,15 @@ class Clients extends Component {
                            <td className = "border font-bold px-6 py-2"> {client.phone}</td>
                            <td className = "border font-bold px-6 py-2"> {client.balance}</td>
                            <td className = " font-bold px-6 py-2"> <Link to = {`/detail/${client._id}`}>Details</Link> </td>
-
+ 
                        </tr>
                        </>
                     )
                 })}
+                </div>
+
+            ): null}
+                
 
             
 
@@ -62,7 +68,8 @@ class Clients extends Component {
 }
 const mapStateToProps = (state) => { 
     return {
-        client: state.client.clients
+        client: state.client.clients,
+        auth: state.user.isAuthenticated
     }
 }
 
