@@ -10,15 +10,16 @@ import Register from "./components/UserAuth/Register"
 import {loadUser } from "./Store/Action/AuthAction";
 import SetAuthToken from "./utils/SetAuthToken"
 
-if(localStorage.token){
-  SetAuthToken(localStorage.token);
+// if(localStorage.token){
+//   SetAuthToken(localStorage.token);
 
-}
+// }
 
 const  App = () =>  {
-  useEffect(()=>{
-    store.dispatch(loadUser());
-  },[]);
+
+  // useEffect(()=>{
+  //   store.dispatch(loadUser());
+  // },[]);
 
   return (
     <Provider store = {store}>

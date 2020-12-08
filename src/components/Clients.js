@@ -9,7 +9,8 @@ import { Link } from "react-router-dom"
 class Clients extends Component {
     componentDidMount(){
         this.props.getClients();
-        console.log(this.props.auth)
+        console.log(this.props.client);
+        console.log(this.props.auth);
     }
 
    

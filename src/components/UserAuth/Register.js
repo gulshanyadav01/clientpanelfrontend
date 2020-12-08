@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useEffe } from 'react'
 import {connect} from "react-redux";
 import {register} from "../../Store/Action/AuthAction"
 import {Redirect} from "react-router-dom";

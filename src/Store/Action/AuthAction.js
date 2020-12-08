@@ -1,10 +1,8 @@
 import {
     REGISTER_SUCCESS,
     REGISTER_FAIL,
-    USER_LOADED,
-    AUTH_ERROR,
-    LOGIN_SUCCESS,
-    LOGIN_FAIL
+    LOGIN_USER_FAIL,
+    LOGIN_USER
     
 }
 from "./Action";
@@ -13,24 +11,25 @@ import SetAuthToken from "../../utils/SetAuthToken";
 
 // Load user 
 
-export const loadUser = () => async dispatch =>{
-    if(localStorage.token){
-        SetAuthToken(localStorage.token);
+// export const loadUser = () => async dispatch =>{
+//     if(localStorage.token){
+//         SetAuthToken(localStorage.token);
 
-    }
-    try{
-        const res = await axios.get("http://localhost:5000/user/signup")
-        dispatch({
-            type:USER_LOADED,
-            payload: res.data
-        });
+//     }
+//     try{
+//         const res = await axios.get("http://localhost:5000/user/signup")
+//         console.log(res);
+//         dispatch({
+//             type:USER_LOADED,
+//             payload: res.data
+//         });
 
-    }catch(err){
-        dispatch({
-            type:AUTH_ERROR
-        })
-    }
-}
+//     }catch(err){
+//         dispatch({
+//             type:AUTH_ERROR
+//         })
+//     }
+// }
 
 
 //
@@ -47,6 +46,7 @@ export const register = ({name, email, password}) => async dispatch =>{
     const body = JSON.stringify({name, email, password});
     try{
         const res = await axios.post("http://localhost:5000/user/signup", body, config);
+        console.log(res);
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
@@ -75,13 +75,13 @@ export const login = ({ email, password}) => async dispatch =>{
     try{
         const res = await axios.post("http://localhost:5000/user/login", body, config);
         dispatch({
-            type: LOGIN_SUCCESS,
+            type: LOGIN_USER,
             payload: res.data
         })
 
     }catch(error){
         dispatch({
-            type:LOGIN_FAIL
+            type:LOGIN_USER_FAIL
 
         })
 

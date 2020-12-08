@@ -1,45 +1,43 @@
 import { 
     REGISTER_SUCCESS,
     REGISTER_FAIL,
-    USER_LOADED,
-    AUTH_ERROR
+    LOGIN_USER,
+    LOGIN_USER_FAIL   
 }
 from "../../Store/Action/Action"
 
 const initialState = {
     token: null,
-    isAuthenticated: null,
-    loading: true
+    isAuthenticated: false,
+    
 }
 
- const authReducer = (state = initialState, action) =>  {
-    const { type, payload} = action; 
-    switch(type){
+ const User = (state = initialState, action) =>  {
+     
+    switch(action.type){
 
-        case USER_LOADED:
-            return{
-                ...state,
-                isAuthenticated: true,
-                loading: false
-            }
-        
         case REGISTER_SUCCESS:
-            localStorage.setItem('token' , payload.token)
+            localStorage.setItem('token' , action.payload.token)
             return{
                 ...state,
-                ...payload,
                 token: localStorage.getItem('token'),
                 isAuthenticated: true,
-                loading:false
             }
         case REGISTER_FAIL:
-        case AUTH_ERROR:
-            localStorage.removeItem("token");
+        case LOGIN_USER_FAIL:
+            // localStorage.removeItem("token");
             return{
                 ...state,
                 token:null,
                 isAuthenticated:false
             }
+        case LOGIN_USER:
+            return{
+                ...state,
+                token: localStorage.getItem('token'),
+                isAuthenticated: true
+            }
+        
             
         default:
             return state
@@ -47,4 +45,4 @@ const initialState = {
     
 
 }
-export default authReducer;
+export default User;
