@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux"
+import {Link} from "react-router-dom"
 // import {userProfile} from "../Store/Action/AuthAction"
 
 class AppNavbar extends Component {
@@ -29,6 +30,8 @@ class AppNavbar extends Component {
                     {this.props.user.name}
                     
                     </div>
+                    <Link to = "/login">Login</Link>
+                    <Link to ="/register">Register</Link>
                 </div>
             </div>
             </div>

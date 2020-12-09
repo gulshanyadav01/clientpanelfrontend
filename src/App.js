@@ -30,8 +30,9 @@ const  App = () =>  {
     <Provider store = {store}>
      <PersistGate loading={null} persistor={persistor}>
       <div className="h-screen" style = {{backgroundColor:"#152036"}}>
-        <AppNavbar/>
+        
           <Router>  
+          <AppNavbar/>
             <Switch>
               <PrivateRoute exact path  = "/" component = {Clients}/>
               <PrivateRoute exact path = "/addclient" component = {AddClient}/>
