@@ -51,8 +51,7 @@ import SetAuthToken from "../../utils/SetAuthToken"
              type : REGISTER_USER,
              payload: res.data
          })
-         
-         userProfile()
+          userProfile()
       
        } catch (err) {
            console.log(err.response.data.msg)
