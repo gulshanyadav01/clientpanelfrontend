@@ -8,7 +8,7 @@ import axios from "axios";
 
 export const addClient = (newClient) => async dispatch => { 
     const res = await axios.post("http://localhost:5000/client/add", newClient);
-    // console.log(res.data.client);
+    console.log(res.data.client);
 
     dispatch({
         type:ADD_CLIENT,
@@ -21,12 +21,25 @@ export const addClient = (newClient) => async dispatch => {
 
 
 export const getClients = () =>  async dispatch => {
-    const response = await axios.get("http://localhost:5000/client/getclients");
+    console.log("get clients ")
+    try{
+        const config = {
+            header:{
+                "x-auth-token":localStorage.getItem("token")
+            }
+        }
 
+        const response = await axios.get("http://localhost:5000/client/getclients", config);
+        console.log(response.data);
+    
     dispatch({
         type:GET_CLIENTS,
         payload: response.data.clients
     })
+}catch(error){
+    console.log(error);
+}
+    
     
 }
 

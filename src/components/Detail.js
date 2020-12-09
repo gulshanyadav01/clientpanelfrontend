@@ -47,7 +47,7 @@ class Detail extends Component {
 }
 const mapStateToProps = (state) =>{
     return{
-        client:state.client
+        client:state.client.client
     }
 }
 const mapDispatchToProps = (dispatch) => {

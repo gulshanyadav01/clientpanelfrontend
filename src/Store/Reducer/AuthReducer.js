@@ -14,7 +14,7 @@ const initialState = {
     loading: false,
     error: null,
     user : null,
-    isLogged: false
+    isLogged: null
 }
 
 
@@ -60,7 +60,7 @@ const AuthReducer =  (state = initialState , action) => {
                 loading: true
             }
 
-        default :
+        default:
            return state
      }
 }

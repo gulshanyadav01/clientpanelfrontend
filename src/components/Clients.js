@@ -8,9 +8,10 @@ import { Link } from "react-router-dom"
 
 class Clients extends Component {
     componentDidMount(){
+        
         this.props.getClients();
-        console.log(this.props.client);
-        console.log(this.props.auth);
+        // console.log(this.props.client)
+        console.log("hello")
     }
 
    
@@ -34,8 +35,6 @@ class Clients extends Component {
                 <th className = "bg-blue-100 text-left px-6 py-2 border">phone</th>
                 <th className = " bg-blue-100 text-left px-6 py-2 border">balance</th>
             </tr>
-            {this.props.auth ? (
-                <div>
                 { this.props.client.map(client =>{
                     return(
                        <>
@@ -50,9 +49,6 @@ class Clients extends Component {
                        </>
                     )
                 })}
-                </div>
-
-            ): null}
                 
 
             
@@ -70,7 +66,7 @@ class Clients extends Component {
 const mapStateToProps = (state) => { 
     return {
         client: state.client.clients,
-        auth: true
+        token: state.user.token
     }
 }
 
