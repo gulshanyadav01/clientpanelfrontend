@@ -1,46 +1,39 @@
-import React, { Component, useEffe } from 'react'
+import React, { useState } from 'react'
 import {connect} from "react-redux";
 import {register} from "../../Store/Action/AuthAction"
-import {Redirect} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 
-class Register extends Component {
-    state = {
+
+const Register = () => {
+    const history = useHistory();
+    const [formdata, setFormData] = useState({
         name:"",
         email:"",
-        password:"",
-        password2:""
-    }
-    onChange = (e) => {
-        this.setState({[e.target.name]: e.target.value});
+        password:""
+    })
+
+    const onChange = (e) => {
+        setFormData({...formdata, [e.target.name]: e.target.value});
     }
 
-    onSubmit = (e) => {
-        e.preventDefault(); 
-        const { name , email, password} = this.state; 
-        // console.log(this.state);
-        const newContact = {
-            name, 
-            email,
-            password
-        }
-        this.props.register(newContact);
-        return <Redirect to ="/"/>
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(formdata);
+        history.push("/");
 
     }
-    render() {
-        const {name, email, password} = this.state;
 
-        return (
-            <div className = "w-80 h-72 m-auto mt-40 bg-green-400 rounded ">
-            <form className = "p-2 ml-6" onSubmit = {this.onSubmit}>
+    return(
+<div className = "w-80 h-72 m-auto mt-40 bg-green-400 rounded ">
+            <form className = "p-2 ml-6" onSubmit = {onSubmit}>
             <div>
                 <label htmlFor = "Name">Name:</label><br/>
                 <input 
                 type = "text"
                 name = "name"
                 placeholder = "enter  name"
-                value = {name}
-                onChange = {this.onChange}
+                value = {formdata.name}
+                onChange = {onChange}
                 /> 
             </div>
             <div>
@@ -49,8 +42,8 @@ class Register extends Component {
                 type = "email"
                 name = "email"
                 placeholder = "enter email"
-                value = {email}
-                onChange = {this.onChange}
+                value = {formdata.email}
+                onChange = {onChange}
                 /> 
             </div>
             <div>
@@ -59,8 +52,8 @@ class Register extends Component {
                 type = "text"
                 name = "password"
                 placeholder = "enter password"
-                value = {password}
-                onChange = {this.onChange}
+                value = {formdata.password}
+                onChange = {onChange}
                 /> 
             </div>
            
@@ -70,7 +63,84 @@ class Register extends Component {
             </div>
             </form>
         </div>
-        )
-    }
+
+    )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const  Register = () =>  {
+//     state = {
+//         name:"",
+//         email:"",
+//         password:"",
+//         password2:""
+//     }
+//     onChange = (e) => {
+//         this.setState({[e.target.name]: e.target.value});
+//     }
+
+//     onSubmit = (e) => {
+//         e.preventDefault(); 
+//         const { name , email, password} = this.state; 
+//         // console.log(this.state);
+//         const newContact = {
+//             name, 
+//             email,
+//             password
+//         }
+//         this.props.register(newContact);
+//         return <Redirect to ="/"/>
+
+//     }
+//     render() {
+//         const {name, email, password} = this.state;
+
+//         return (
+            
+//         )
+//     }
+// }
 export default connect(null,{register} )(Register);

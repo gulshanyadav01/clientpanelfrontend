@@ -76,3 +76,5 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps,{getClients})(Clients);
+
+// #1B2A47 #152036

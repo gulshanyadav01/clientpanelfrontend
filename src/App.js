@@ -9,6 +9,7 @@ import Detail from "./components/Detail"
 import Register from "./components/UserAuth/Register"
 import {loadUser } from "./Store/Action/AuthAction";
 import SetAuthToken from "./utils/SetAuthToken"
+import Login from "./components/UserAuth/Login"
 
 // if(localStorage.token){
 //   SetAuthToken(localStorage.token);
@@ -23,7 +24,7 @@ const  App = () =>  {
 
   return (
     <Provider store = {store}>
-      <div className="App">
+      <div className="h-screen" style = {{backgroundColor:"#152036"}}>
         <AppNavbar/>
           <Router>
             <Switch>
@@ -31,6 +32,7 @@ const  App = () =>  {
               <Route exact path = "/addclient" component = {AddClient}/>
               <Route exact path = "/detail/:id" component = {Detail}/>
               <Route exact path = "/register" component = {Register}/>
+              <Route exact path = "/login" component = {Login}/>
             </Switch>
           </Router>
       </div>
