@@ -35,7 +35,7 @@ class Clients extends Component {
                 <th className = "bg-blue-100 text-left px-6 py-2 border">phone</th>
                 <th className = " bg-blue-100 text-left px-6 py-2 border">balance</th>
             </tr>
-                { this.props.client.map(client =>{
+                { this.props.token &&  this.props.client.map(client =>{
                     return(
                        <>
                        <tr  key = {client._id}>

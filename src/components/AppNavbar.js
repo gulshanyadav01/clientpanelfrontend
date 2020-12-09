@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
+import {connect} from "react-redux"
+// import {userProfile} from "../Store/Action/AuthAction"
 
 class AppNavbar extends Component {
+    // componentDidMount(){
+    //     this.props.userProfile();
+    //     console.log(this.props.user.email)
+
+    // }
     render() {
+       console.log(this.props.user.email);
         return (
             <div className = "h-12 bg-blue-300 flex justify-around">
             <div className = "ml-10 mr-10">
@@ -18,7 +26,8 @@ class AppNavbar extends Component {
                     setting
                     </div>
                     <div>
-                    emial
+                    {this.props.user.name}
+                    
                     </div>
                 </div>
             </div>
@@ -26,5 +35,11 @@ class AppNavbar extends Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return{
+        user: state.user.user,
+        token: state.user.token
+    }
+}
 
-export default AppNavbar;
+export default connect(mapStateToProps)(AppNavbar);

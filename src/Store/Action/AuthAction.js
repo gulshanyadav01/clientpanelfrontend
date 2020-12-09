@@ -20,7 +20,7 @@ import SetAuthToken from "../../utils/SetAuthToken"
       const res = await axios.get('http://localhost:5000/user/');
       dispatch({
         type: USER_PROFILE,
-        payload: res.data
+        payload: res.data.user
       })
     } catch (err) {
         console.log(err.response)

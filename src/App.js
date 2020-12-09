@@ -13,6 +13,7 @@ import Login from "./components/UserAuth/Login"
 import PrivateRoute from "./components/Private"
 import {store , persistor}  from './Store/Store'
 import { PersistGate } from 'redux-persist/integration/react'
+import { userProfile} from "./Store/Action/AuthAction"
 
 if(localStorage.token){
   SetAuthToken(localStorage.token);
@@ -21,9 +22,9 @@ if(localStorage.token){
 
 const  App = () =>  {
 
-  // useEffect(()=>{
-  //   store.dispatch(loadUser());
-  // },[]);
+  useEffect(()=>{
+    store.dispatch(userProfile());
+  },[]);
 
   return (
     <Provider store = {store}>
