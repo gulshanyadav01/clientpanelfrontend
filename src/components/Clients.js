@@ -70,7 +70,7 @@ class Clients extends Component {
 const mapStateToProps = (state) => { 
     return {
         client: state.client.clients,
-        auth: state.user.isAuthenticated
+        auth: true
     }
 }
 

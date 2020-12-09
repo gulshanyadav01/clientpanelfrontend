@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import {connect} from "react-redux";
-import {register} from "../../Store/Action/AuthAction"
+import {registerUser} from "../../Store/Action/AuthAction"
 import {Redirect, useHistory} from "react-router-dom";
 
 
-const Register = () => {
+const Register = ({registerUser}) => {
     const history = useHistory();
     const [formdata, setFormData] = useState({
         name:"",
@@ -14,12 +14,17 @@ const Register = () => {
 
     const onChange = (e) => {
         setFormData({...formdata, [e.target.name]: e.target.value});
+
+    
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(formdata);
-        history.push("/");
+        const {name, email, password} = formdata;
+        console.log(`${name} ${email} ${password}`)
+        registerUser({name, email, password});
+        history.push("/login");
+
 
     }
 
@@ -67,6 +72,8 @@ const Register = () => {
     )
 }
 
+
+export default connect(null,{registerUser} )(Register);
 
 
 
@@ -143,4 +150,3 @@ const Register = () => {
 //         )
 //     }
 // }
-export default connect(null,{register} )(Register);

@@ -4,12 +4,12 @@ export const GET_CLIENTS = "GET_CLIENTS";
 export const UPDATE_CLIENT_BY_ID = "UPDATE_CLIENT_BY_ID"; 
 export const GET_CLIENT_BY_ID = "GET_CLIENT_BY_ID"; 
 
-export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 
-export const REGISTER_FAIL = "REGISTER_FAIL";
+export const REGISTER_USER = "REGISTER_USER"
+export const REGISTER_USER_FAIL = "REGISTER_USER_FAIL"
+export const LOGIN_USER = "LOGIN_USER"
+export const LOGIN_USER_FAIL = "LOGIN_USER_FAIL"
+export const USER_PROFILE = "USER_PROFILE"
+export const USER_PROFILE_FAIL = "USER_PROFILE_FAIL"
 
-export const USER_LOADED = "USER_LOADED";
-export const AUTH_ERROR = "AUTH_ERROR"; 
 
-export const LOGIN_USER = "LOGIN_USER";
-export const LOGIN_USER_FAIL = "LOGIN_USER_FAIL";
