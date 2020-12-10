@@ -56,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
     getClientById: (id) => dispatch(getClientById(id))
     };
   };
-export default connect(mapStateToPros, mapDispatchToProps)(Detail);
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);
