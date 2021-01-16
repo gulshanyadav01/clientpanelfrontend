@@ -16,8 +16,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { userProfile} from "./Store/Action/AuthAction"
 
 if(localStorage.token){
-
-  SetAuthToken(localStorage.token)
+  SetAuthToken(localStorage.token);
 }
 
 const  App = () =>  {
