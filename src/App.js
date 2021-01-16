@@ -16,8 +16,12 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { userProfile} from "./Store/Action/AuthAction"
 
 if(localStorage.token){
+<<<<<<< HEAD
   SetAuthToken(localStorage.token);
   // 
+=======
+  SetAuthToken(localStorage.token)
+>>>>>>> b78251c8b996897e52fb3b70edb58f5d000120c3
 
 }
 
